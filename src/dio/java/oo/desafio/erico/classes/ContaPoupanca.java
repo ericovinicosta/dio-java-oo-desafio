@@ -9,7 +9,10 @@ import java.util.Date;
 
 public class ContaPoupanca extends Conta {
 
-    ContaPoupanca(ArrayList<Cliente> cliente) {
+    public ContaPoupanca(Cliente cliente) {
+        super(cliente);
+    }
+    public ContaPoupanca(ArrayList<Cliente> cliente) {
         super(cliente);
     }
 

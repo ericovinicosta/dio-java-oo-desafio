@@ -10,7 +10,7 @@ public class Banco {
     private final HashSet<Cliente> cliente;
     private final HashSet<Conta> conta;
 
-    Banco(String nome){
+    public Banco(String nome){
         this.nomeDoBanco = nome;
         cliente = new HashSet<>();
         conta = new HashSet<>();

@@ -8,7 +8,7 @@ public class Cliente {
     private String cpf;
     private int codigo;
 
-    Cliente( String cpf, String nome){
+    public Cliente( String cpf, String nome){
 
         this.cpf = cpf;
         this.nome = nome;

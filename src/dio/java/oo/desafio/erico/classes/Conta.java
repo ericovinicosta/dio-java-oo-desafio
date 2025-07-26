@@ -16,7 +16,14 @@ public abstract class Conta implements InterfaceConta {
     protected int numero;
     protected ArrayList<Cliente> cliente;
 
-    Conta(ArrayList<Cliente> cliente){
+    public Conta(Cliente cliente){
+        this.agencia = AGENCIA_PADRAO;
+        this.numero = SEQUENCIAL++;
+        this.saldo = 0;
+        this.cliente = new ArrayList<>();
+        this.cliente.add(cliente);
+    }
+    public Conta(ArrayList<Cliente> cliente){
         this.agencia = AGENCIA_PADRAO;
         this.numero = SEQUENCIAL++;
         this.saldo = 0;
@@ -48,7 +55,8 @@ public abstract class Conta implements InterfaceConta {
     public void extratoDaConta() {
         System.out.println("Extrato para Conferência Simples");
         System.out.println("================================");
-        System.out.printf("Agência: %s Conta: %s\n\n", this.getAgencia(), this.getNumero());
+        System.out.printf("Agência: %s Conta: %s\n", this.getAgencia(), this.getNumero());
+        System.out.printf("Correntistas: %s \n\n", this.getCliente());
     }
 
     public abstract double getSaldo();
@@ -63,8 +71,8 @@ public abstract class Conta implements InterfaceConta {
         return numero;
     }
 
-    public ArrayList<Cliente> getCliente() {
-        return cliente;
+    public String getCliente() {
+        return this.cliente.getFirst().getNome();
     }
 
 }

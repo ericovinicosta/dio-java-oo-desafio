@@ -11,10 +11,23 @@ public class ContaCorrente extends Conta {
 
     private double limite;
 
-    ContaCorrente(ArrayList<Cliente> cliente) {
+    public ContaCorrente(Cliente cliente) {
         super(cliente);
         this.limite = 0;
     }
+    public ContaCorrente(ArrayList<Cliente> cliente) {
+        super(cliente);
+        this.limite = 0;
+    }
+
+    public void setLimite(double limite) {
+        this.limite = limite;
+    }
+
+    public double getLimite() {
+        return this.limite;
+    }
+
     public void transferir(double valor, Conta conta){
         if(this.saldo + this.limite < valor) {
             System.out.println("Saldo insuficiente");
@@ -24,12 +37,13 @@ public class ContaCorrente extends Conta {
             super.transferirDaConta(valor, conta);
         }
     }
+
     public void extratoConta(){
         String data = DateFormat.getDateInstance().format(new Date());
         super.extratoDaConta();
-        System.out.printf("Saldo: %.2f\n", this.saldo);
-        System.out.printf("Limite: %.2f\n", this.limite);
-        System.out.printf("Saldo + Limite: %.2f\n", (this.saldo + this.limite));
+        System.out.printf("Saldo: %.2f\n", this.getSaldo());
+        System.out.printf("Limite: %.2f\n", this.getLimite());
+        System.out.printf("Saldo + Limite: %.2f\n", (this.getSaldo() + this.getLimite()));
         String hora = new SimpleDateFormat("HH:mm:ss").format(new Date());
         System.out.printf("Emitido em %s às %s\n", data, hora);
         System.out.println("================================");
